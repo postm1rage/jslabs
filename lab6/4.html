@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form name="search">
+        <label>Search the site:
+            <input type="text" name="search">
+        </label>
+        <input type="submit" value="Search!">
+    </form>
+
+    <hr>
+
+    <form name="search-person">
+        Search the visitors:
+        <table id="age-table">
+            <tbody>
+                <tr>
+                    <td>Age:</td>
+                    <td id="age-list">
+                        <label>
+                            <input type="radio" name="age" value="young">less than 18
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="mature">18-50
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="senior">more than 50
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Additionally:</td>
+                    <td>
+                        <input type="text" name="info[0]">
+                        <input type="text" name="info[1]">
+                        <input type="text" name="info[2]">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Search!">
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            let ageTable = document.getElementById('age-table');
+            console.log('1. Таблица age-table:', ageTable);
+            
+            if (ageTable) {
+
+                let labelsInTable = ageTable.querySelectorAll('label');
+                console.log('2. Все label в таблице:', labelsInTable);
+
+                let firstTd = ageTable.querySelector('td');
+                console.log('3. Первый td:', firstTd);
+            } else {
+                console.error('Таблица не найдена!');
+            }
+            
+
+            let searchForm = document.querySelector('form[name="search"]');
+            console.log('4. Форма search:', searchForm);
+            
+            if (searchForm) {
+                let firstInput = searchForm.querySelector('input');
+                console.log('5. Первый input:', firstInput);
+                
+
+                let allInputs = searchForm.querySelectorAll('input');
+                let lastInput = allInputs[allInputs.length - 1];
+                console.log('6. Последний input:', lastInput);
+            }
+            
+        });
+    </script>
+</body>
+</html>

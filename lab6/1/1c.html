@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let n = parseInt(prompt("Введите натуральное число:"));
+        let found = false;
+        
+        for (let i = 1; i * i <= n; i++) {
+            for (let j = 1; j * j <= n; j++) {
+                if (i * i + j * j === n) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) break;
+        }
+        
+        if (found) {
+            alert(`${n} можно представить в виде суммы двух квадратов`);
+        } else {
+            alert(`${n} нельзя представить в виде суммы двух квадратов`);
+        }
+    </script>
+</body>
+</html>

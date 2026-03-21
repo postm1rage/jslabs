@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let n = parseInt(prompt("Введите порядок матрицы:"));
+        let matrix = [];
+        
+        for (let i = 0; i < n; i++) {
+            matrix[i] = [];
+            for (let j = 0; j < n; j++) {
+                matrix[i][j] = Math.floor(Math.random() * 100);
+            }
+        }
+        
+        let diagonalValues = [];
+        for (let i = 0; i < n; i++) {
+            diagonalValues.push(matrix[i][i]); 
+            if (i !== n - 1 - i) {
+                diagonalValues.push(matrix[i][n - 1 - i]); 
+            }
+        }
+        
+        let maxVal = Math.max(...diagonalValues);
+        let minVal = Math.min(...diagonalValues);
+        
+        for (let i = 0; i < n; i++) {
+            for (let j = 0; j < n; j++) {
+                if (i === j || i + j === n - 1) {
+                    if (matrix[i][j] !== maxVal && matrix[i][j] !== minVal) {
+                        matrix[i][j] = 0;
+                    }
+                }
+            }
+        }
+        
+        let output = "";
+        for (let i = 0; i < n; i++) {
+            output += matrix[i].join(" ") + "\n";
+        }
+        alert(output);
+    </script>
+</body>
+</html>

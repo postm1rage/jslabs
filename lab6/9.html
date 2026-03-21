@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        const firstNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Екатерина', 'Дмитрий', 'Ольга', 'Сергей', 'Татьяна', 'Александр', 'Наталья', 'Максим', 'Юлия', 'Артем'];
+        const lastNames = ['Иванов', 'Петрова', 'Сидоров', 'Кузнецова', 'Смирнов', 'Васильева', 'Федоров', 'Морозова', 'Волков', 'Соколова', 'Лебедева', 'Козлов', 'Новикова', 'Морозов', 'Попова'];
+        
+        function generateRandomName() {
+            let firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            let lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            return `${firstName} ${lastName}`;
+        }
+        
+        function buildLayout() {
+            document.body.innerHTML = '';
+            
+
+            let header = document.createElement('header');
+            document.body.appendChild(header);
+            
+
+            let main = document.createElement('main');
+            main.className = 'content';
+            document.body.appendChild(main);
+            
+
+            let aside = document.createElement('aside');
+            main.appendChild(aside);
+            
+
+            let section = document.createElement('section');
+            main.appendChild(section);
+            
+
+            let headerDiv = document.createElement('div');
+            headerDiv.className = 'header-d';
+            headerDiv.textContent = 'Выберите лицо, которое нравится вам больше остальных:';
+            section.appendChild(headerDiv);
+            
+
+            let display = document.createElement('div');
+            display.className = 'display';
+            section.appendChild(display);
+            
+            return display;
+        }
+        
+        function createCard(number) {
+            let card = document.createElement('div');
+            card.className = 'card';
+            
+            let img = document.createElement('img');
+            img.src = `https://thispersondoesnotexist.com/?${number}`;
+            img.alt = 'Avatar';
+            card.appendChild(img);
+            
+            let description = document.createElement('div');
+            description.className = 'description';
+            
+            let p = document.createElement('p');
+            p.textContent = generateRandomName();
+            description.appendChild(p);
+            
+            card.appendChild(description);
+            
+            return card;
+        }
+        
+        let display = buildLayout();
+        let cardCount = 0;
+        
+        let timer = setInterval(() => {
+            if (cardCount >= 6) {
+                clearInterval(timer);
+            } else {
+                cardCount++;
+                let newCard = createCard(cardCount);
+                display.appendChild(newCard);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

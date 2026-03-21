@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Создание списка</h1>
+
+    <div id="container"></div>
+    <script>
+        let count = prompt("Сколько пунктов добавить в список?");
+
+        let ul = document.createElement('ul');
+        
+
+        for (let i = 1; i <= count; i++) {
+            let text = prompt(`Пункт ${i}:`);
+            let li = document.createElement('li');
+            li.textContent = text;
+            ul.appendChild(li); 
+        }
+        
+        document.getElementById('container').appendChild(ul);
+    </script>
+</body>
+</html>

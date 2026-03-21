@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let s = prompt("Введите строку:");
+        let latinCount = 0;
+        
+        for (let i = 0; i < s.length; i++) {
+            let char = s[i];
+            if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z')) {
+                latinCount++;
+            }
+        }
+        
+        let percent = (latinCount / s.length) * 100;
+        alert(`Доля латинских букв: ${percent.toFixed(2)}%`);
+    </script>
+</body>
+</html>

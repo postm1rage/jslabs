@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let s = prompt("Введите строку:");
+        let words = s.trim().split(/\s+/);
+        let uniqueWords = [];
+        
+        for (let i = 0; i < words.length; i++) {
+            if (!uniqueWords.includes(words[i])) {
+                uniqueWords.push(words[i]);
+            }
+        }
+        
+        let result = uniqueWords.join(' ');
+        alert(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let n = parseInt(prompt("Введите количество дней:"));
+        let currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() + n);
+        
+        alert(`Текущая дата + ${n} дней: ${currentDate.toLocaleDateString()}`);
+    </script>
+</body>
+</html>
